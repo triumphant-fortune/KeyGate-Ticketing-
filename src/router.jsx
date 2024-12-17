@@ -8,6 +8,9 @@ import { TickeType } from "./components/TickeType";
 import { Dashboard } from "./pages/Dashboard";
 import { Ticketing } from "./pages/Ticketing";
 import { Event } from "./pages/Event";
+import { WelcomeForm } from "./pages/WelcomeForm";
+import { ViewTicket } from "./pages/ViewTicket";
+import { Profile } from "./pages/Profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,7 +21,10 @@ const router = createBrowserRouter(
         <Route index element={<Ticketing />} />
         <Route path="ticket-type" element={<TickeType />} />
       </Route>
+      <Route path="/welcome" element={<WelcomeForm />} />
       <Route path="/event" element={<Event />} />
+      <Route path="/view-ticket" element={<ViewTicket />} />
+      <Route path="/profile" element={<Profile />} />
     </>
   )
 );

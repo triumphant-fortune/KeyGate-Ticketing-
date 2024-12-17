@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "antd";
 import { ArrowLeft, Image } from "lucide-react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export const Ticketing = () => {
   const navigate = useNavigate();
@@ -22,12 +22,18 @@ export const Ticketing = () => {
           </Button>
           <p className="text-2xl font-bold text-white">Ticketing</p>
           <div className="flex items-center gap-4">
-            <Button onClick={() => {navigate("/ticketing/ticket-type")}} variant="ghost" className="p-0 rounded-full hover:bg-transparent">
+            <Button
+              onClick={() => {
+                navigate("/ticketing/ticket-type");
+              }}
+              variant="ghost"
+              className="p-0 rounded-full hover:bg-transparent"
+            >
               <p className="text-lg">Save</p>
             </Button>
-            <Button variant="ghost" className="p-0 rounded-full">
+            <Link to="/profile" variant="ghost" className="p-0 rounded-full">
               <img src={profile} alt="" className="w-10 h-10 rounded-full" />
-            </Button>
+            </Link>
           </div>
         </div>
       </header>

@@ -35,10 +35,13 @@ const CopyButton = () => {
         <input
           type="text"
           className="w-full text-[#000066] text-sm md:text-base"
-          value={window.location.href}
+          value={"https://key-gate-ticketing.vercel.app/welcome"}
           readOnly
         />
-        <CopyToClipboard text={window.location.href} onCopy={onCopyText}>
+        <CopyToClipboard
+          text={"https://key-gate-ticketing.vercel.app/welcome"}
+          onCopy={onCopyText}
+        >
           <Button
             className="w-fit h-auto p-0"
             variant="link"

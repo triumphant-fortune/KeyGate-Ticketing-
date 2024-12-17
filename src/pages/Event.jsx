@@ -2,6 +2,7 @@ import { profile } from "@/assets";
 import { JoinEvent } from "@/components/modals/JoinEvent";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router";
 
 export const Event = () => {
   return (
@@ -19,9 +20,9 @@ export const Event = () => {
           </Button>
           <p className="text-2xl font-bold text-white">Event</p>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="p-0 rounded-full">
+            <Link to="/profile" variant="ghost" className="p-0 rounded-full">
               <img src={profile} alt="" className="w-10 h-10 rounded-full" />
-            </Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -43,7 +44,7 @@ export const Event = () => {
           <p>Lagos, Nigeria</p>
         </div>
 
-        <JoinEvent/>
+        <JoinEvent />
       </main>
     </div>
   );

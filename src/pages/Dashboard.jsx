@@ -2,7 +2,7 @@ import { profile } from "@/assets";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Search } from "lucide-react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const events = {
   yourEvents: [
@@ -54,9 +54,9 @@ export const Dashboard = () => {
       <header className="bg-[#242062] px-8 py-5">
         <div className="flex items-center justify-between max-w-screen-xl mx-auto">
           <p className="text-2xl font-bold text-white">Welcome Back!</p>
-          <Button variant="ghost" className="p-0 rounded-full">
+          <Link to="/profile" variant="ghost" className="p-0 rounded-full">
             <img src={profile} alt="" className="w-10 h-10 rounded-full" />
-          </Button>
+          </Link>
         </div>
       </header>
       <main className="flex flex-col gap-10 py-10 max-w-screen-xl mx-auto">
