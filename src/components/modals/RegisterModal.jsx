@@ -7,9 +7,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
-import { Divider } from "antd";
+// import { Divider } from "antd";
 import { ConnectWallet } from "./ConnectWallet";
-import { LoginModal } from "./LoginModal";
+// import { LoginModal } from "./LoginModal";
 
 export const RegisterModal = () => {
   return (
@@ -32,11 +32,11 @@ export const RegisterModal = () => {
           </p>
           <ConnectWallet />
 
-          <Divider style={{ borderColor: "white", color: "white" }}>
+          {/* <Divider style={{ borderColor: "white", color: "white" }}>
             {" "}
             or{" "}
           </Divider>
-          <LoginModal />
+          <LoginModal /> */}
         </div>
       </DialogContent>
     </Dialog>

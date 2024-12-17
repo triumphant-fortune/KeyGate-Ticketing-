@@ -1,6 +1,18 @@
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router";
 import { RegisterModal } from "./components/modals/RegisterModal";
+// import { useAccount} from 'wagmi';
 
 export const App = () => {
+  // const navigate = useNavigate();
+  // const { address: userWalletAddress, } = useAccount();
+
+  // useEffect(() => {
+  //   if (userWalletAddress) {
+  //       return navigate("/events");
+  //   }
+  // }, [userWalletAddress, navigate]);
+
   return (
     <main className="bg-[url('https://res.cloudinary.com/dr6bek9dv/image/upload/f_auto,q_auto/v1/decentralize-events/xon0l7vlxlmmasayigsa')] bg-no-repeat bg-cover h-screen text-white">
       <div

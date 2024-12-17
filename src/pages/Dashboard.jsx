@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import { profile } from "@/assets";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Search } from "lucide-react";
 import { useNavigate } from "react-router";
+import { useAccount, useDisconnect } from "wagmi";
 
 const events = {
   yourEvents: [
@@ -49,6 +51,15 @@ const events = {
 
 export const Dashboard = () => {
   const navigate = useNavigate();
+  const {isConnected, address: userWalletAddress } = useAccount();
+  const { disconnect } = useDisconnect();
+
+  useEffect(() => {
+    if (!isConnected) {
+      navigate(`/`);
+    }
+  }, [isConnected, navigate]);
+
   return (
     <div className="bg-[url('https://res.cloudinary.com/dr6bek9dv/image/upload/f_auto,q_auto/v1/decentralize-events/xon0l7vlxlmmasayigsa')] bg-cover min-h-screen text-white">
       <header className="bg-[#242062] px-8 py-5">
@@ -56,6 +67,14 @@ export const Dashboard = () => {
           <p className="text-2xl font-bold text-white">Welcome Back!</p>
           <Button variant="ghost" className="p-0 rounded-full">
             <img src={profile} alt="" className="w-10 h-10 rounded-full" />
+            <p>{userWalletAddress}</p>
+          </Button>
+          <Button
+            type="button"
+            onClick={() => disconnect()}
+            className="w-full max-w-[353px] bg-[#000000] hover:bg-[#1D205C] h-auto px-10 py-3 rounded-full"
+          >
+            Disconnect wallet
           </Button>
         </div>
       </header>

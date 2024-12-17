@@ -40,7 +40,7 @@ export const LoginModal = () => {
           </div>
           <div className="flex justify-center items-center gap-4">
             <Button
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate("/events")}
               variant="outline"
               className="bg-[#2E21558F] border-black text-white hover:text-white hover:bg-[#2E21558F]/90 text-lg rounded-full px-9 py-3 h-auto"
             >

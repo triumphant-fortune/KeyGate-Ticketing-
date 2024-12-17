@@ -13,12 +13,17 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/events">
+        <Route index element={<Dashboard />} />
+        {/* element={<Dashboard />} /> */}
+        <Route path=":id" element={<Event />} />
+      </Route>
+
       <Route path="/ticketing">
         <Route index element={<Ticketing />} />
         <Route path="ticket-type" element={<TickeType />} />
       </Route>
-      <Route path="/event" element={<Event />} />
+      {/* <Route path="/event" element={<Event />} /> */}
     </>
   )
 );

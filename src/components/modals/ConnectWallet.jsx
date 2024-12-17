@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import {
   Dialog,
   DialogContent,
@@ -8,6 +10,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { blade, hashpack, metamask } from "@/assets";
+import { useAccount, useConnect } from "wagmi";
+import { injected } from "wagmi/connectors";
 
 const wallets = [
   {
@@ -28,6 +32,23 @@ const wallets = [
 ];
 
 export const ConnectWallet = () => {
+  const { connect } = useConnect();
+
+  const navigate = useNavigate();
+  const { address: userWalletAddress } = useAccount();
+
+  useEffect(() => {
+    if (userWalletAddress) {
+      navigate("/events");
+    }
+  }, [userWalletAddress, navigate]);
+
+  function handleConnectWallet(walletName) {
+    if (walletName === "MetaMask") {
+      connect({ connector: injected() });
+    }
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -49,6 +70,7 @@ export const ConnectWallet = () => {
         <div className="flex flex-col gap-3">
           {wallets.map((wallet) => (
             <Button
+              onClick={() => handleConnectWallet(wallet.name)}
               key={wallet.name}
               variant="outline"
               className="bg-transparent justify-start border-none hover:bg-transparent text-2xl rounded-full px-0 py-4 h-auto w-96 shadow-none"
