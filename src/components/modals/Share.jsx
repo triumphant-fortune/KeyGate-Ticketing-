@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import CopyButton from "../CopyButton";
 import { Button } from "../ui/button";
 import {
@@ -11,6 +12,7 @@ import {
 } from "../ui/dialog";
 
 export const Share = () => {
+  const navigate = useNavigate();
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -36,7 +38,7 @@ export const Share = () => {
           </CopyButton>
         </div>
         <DialogClose>
-          <Button className="bg-[#3A296B] border-[#2E2155] hover:bg-[#3A296B]/90 hover:text-white rounded-full h-auto mx-auto">
+          <Button onClick={() => navigate("/")} className="bg-[#3A296B] border-[#2E2155] hover:bg-[#3A296B]/90 hover:text-white rounded-full h-auto mx-auto">
             Close
           </Button>
         </DialogClose>

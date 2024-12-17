@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { blade, hashpack, metamask } from "@/assets";
+import { useNavigate } from "react-router";
 
 const wallets = [
   {
@@ -28,6 +29,7 @@ const wallets = [
 ];
 
 export const ConnectWallet = () => {
+  const navigate = useNavigate();
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -49,6 +51,7 @@ export const ConnectWallet = () => {
         <div className="flex flex-col gap-3">
           {wallets.map((wallet) => (
             <Button
+              onClick={() => navigate("/dashboard")}
               key={wallet.name}
               variant="outline"
               className="bg-transparent justify-start border-none hover:bg-transparent text-2xl rounded-full px-0 py-4 h-auto w-96 shadow-none"
